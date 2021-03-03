@@ -3,7 +3,7 @@ from MorphologicalAnalysis.MorphologicalTag import MorphologicalTag
 
 from AnnotatedSentence.AnnotatedSentence import AnnotatedSentence
 from AnnotatedSentence.AnnotatedWord import AnnotatedWord
-from AnnotatedSentence.AutoProcessor.AutoNER.AutoNER import SentenceAutoNER
+from NER.AutoProcessor.Sentence.SentenceAutoNER import SentenceAutoNER
 
 
 class TurkishSentenceAutoNER(SentenceAutoNER):
