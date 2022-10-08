@@ -11,7 +11,7 @@ from AnnotatedTree.Processor.NodeDrawableCollector import NodeDrawableCollector
 
 class TreeAutoNER(AutoNER):
 
-    secondLanguage: ViewLayerType
+    second_language: ViewLayerType
 
     @abstractmethod
     def autoDetectPerson(self, parseTree: ParseTreeDrawable):
@@ -34,7 +34,7 @@ class TreeAutoNER(AutoNER):
         pass
 
     def __init__(self, secondLanguage: ViewLayerType):
-        self.secondLanguage = secondLanguage
+        self.second_language = secondLanguage
 
     def autoNER(self, parseTree: ParseTreeDrawable):
         self.autoDetectPerson(parseTree)
@@ -42,9 +42,9 @@ class TreeAutoNER(AutoNER):
         self.autoDetectOrganization(parseTree)
         self.autoDetectMoney(parseTree)
         self.autoDetectTime(parseTree)
-        nodeDrawableCollector = NodeDrawableCollector(parseTree.getRoot(), IsTransferable(self.secondLanguage))
-        leafList = nodeDrawableCollector.collect()
-        for parseNode in leafList:
-            if isinstance(parseNode, ParseNodeDrawable) and not parseNode.layerExists(ViewLayerType.NER):
-                parseNode.getLayerInfo().setLayerData(ViewLayerType.NER, "NONE")
+        node_drawable_collector = NodeDrawableCollector(parseTree.getRoot(), IsTransferable(self.second_language))
+        leaf_list = node_drawable_collector.collect()
+        for parse_node in leaf_list:
+            if isinstance(parse_node, ParseNodeDrawable) and not parse_node.layerExists(ViewLayerType.NER):
+                parse_node.getLayerInfo().setLayerData(ViewLayerType.NER, "NONE")
         parseTree.save()
