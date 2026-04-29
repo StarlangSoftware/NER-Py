@@ -5,8 +5,8 @@ this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text(encoding="utf-8")
 
 setup(
-    name='NlpToolkit-NER',
-    version='1.0.3',
+    name='nlptoolkit_ner',
+    version='1.0.4',
     packages=['NER', 'NER.AutoProcessor', 'NER.AutoProcessor.Sentence', 'NER.AutoProcessor.ParseTree'],
     url='https://github.com/StarlangSoftware/NER-Py',
     license='',
